@@ -1,26 +1,195 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ════════════════════════════════════════════════════════════
+   ASSEMBLY VIBE — Design tokens (Brand Guide v2)
+   Indigo + ink + lavender · Space Grotesk display · Inter body
+   ════════════════════════════════════════════════════════════ */
+
+@theme {
+  /* Indigo (extended) */
+  --color-indigo-50:  #F2F2FC;
+  --color-indigo-100: #E6E7FB;
+  --color-indigo-200: #CFD2F7;
+  --color-indigo-300: #A8AEEF;
+  --color-indigo-400: #8086EA;
+  --color-indigo-500: #6B62EA;
+  --color-indigo-600: #4F46E5;
+  --color-indigo-700: #3F37B8;
+  --color-indigo-800: #2A248A;
+
+  /* Lavender (surfaces) */
+  --color-lavender-50:  #F4F5FB;
+  --color-lavender-100: #E8EAF5;
+  --color-lavender-200: #D8DAEF;
+  --color-lavender-300: #C5C8E8;
+
+  /* Ink (neutrals) */
+  --color-ink-50:  #F6F7FB;
+  --color-ink-100: #EEF0F6;
+  --color-ink-200: #E3E5EE;
+  --color-ink-300: #C7CAD8;
+  --color-ink-400: #8388A0;
+  --color-ink-500: #5B6079;
+  --color-ink-700: #2A2E45;
+  --color-ink-900: #15172A;
+  --color-ink-950: #0A0B14;
+
+  /* System accents (product chrome only) */
+  --color-sage-bg:  #D6EBDB;
+  --color-sage-fg:  #2F6B40;
+  --color-amber-bg: #FCE6C2;
+  --color-amber-fg: #7A511A;
+  --color-warn-bg:  #FBE2DF;
+  --color-warn-fg:  #9B2C24;
+
+  /* Type families — values bridged from next/font/google via the html class */
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-body:    var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    var(--font-jetbrains-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  /* Shadows */
+  --shadow-card:  0 1px 0 rgba(15,17,42,.04), 0 12px 32px -16px rgba(15,17,42,.12);
+  --shadow-hover: 0 1px 0 rgba(15,17,42,.06), 0 24px 56px -24px rgba(15,17,42,.18);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ════════════════════════════════════════════════════════════
+   Base
+   ════════════════════════════════════════════════════════════ */
+
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  background: #fff;
+  color: var(--color-ink-950);
+  font-family: var(--font-body);
+  font-size: 15.5px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+::selection { background: var(--color-indigo-600); color: #fff; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  color: var(--color-ink-950);
+  line-height: 1.06;
+  text-wrap: balance;
+}
+h1 { font-size: clamp(40px, 5vw, 68px); letter-spacing: -0.028em; line-height: 1.02; }
+h2 { font-size: clamp(28px, 3vw, 38px); letter-spacing: -0.02em; }
+h3 { font-size: 20px; }
+h4 { font-size: 14px; font-family: var(--font-body); letter-spacing: -0.005em; }
+p  { text-wrap: pretty; }
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: 0; background: none; color: inherit; }
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  background: var(--color-ink-50);
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: var(--color-ink-700);
+}
+
+/* ════════════════════════════════════════════════════════════
+   Reusable primitives
+   ════════════════════════════════════════════════════════════ */
+
+.wrap {
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: 32px;
+}
+@media (max-width: 720px) {
+  .wrap { padding-inline: 20px; }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-500);
+  display: inline-flex;
+  align-items: center;
+}
+.eyebrow .dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  background: var(--color-indigo-600);
+  border-radius: 50%;
+  margin-right: 8px;
+  transform: translateY(-1px);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-size: 14.5px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  transition: transform .12s ease, background .15s, color .15s, box-shadow .15s, border-color .15s;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+.btn .arr { display: inline-block; transition: transform .2s; }
+.btn:hover .arr { transform: translateX(3px); }
+
+.btn-primary {
+  background: var(--color-indigo-600);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 1px 0 rgba(15, 17, 42, 0.06),
+    0 10px 28px -12px rgba(79, 70, 229, 0.5);
+}
+.btn-primary:hover {
+  background: var(--color-indigo-700);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-ink-950);
+  border: 1px solid var(--color-ink-200);
+}
+.btn-secondary:hover {
+  border-color: var(--color-ink-950);
+  background: var(--color-ink-50);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-ink-700);
+}
+.btn-ghost:hover {
+  background: var(--color-ink-50);
+  color: var(--color-ink-950);
+}
+
+/* Hover lift used on cards */
+.lift {
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.lift:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
 }
