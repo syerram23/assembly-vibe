@@ -163,11 +163,14 @@ export default function BrandingPage() {
           <Card title="02 · Color palette" subtitle="Used across every app: backgrounds, accents, links, badge tones.">
             <div className="palette">
               {colors.map((c) => (
-                <div key={c.name} className="swatch">
-                  <label className="swatch-label">{c.name}</label>
-                  <div className="swatch-chip" style={{ background: c.hex, color: c.name === "surface" ? ink : "#fff" }}>
+                <label key={c.name} className="swatch">
+                  <span className="swatch-label">{c.name}</span>
+                  <span
+                    className="swatch-chip"
+                    style={{ background: c.hex, color: c.name === "surface" ? ink : "#fff" }}
+                  >
                     <span className="swatch-hex">{c.hex.toUpperCase()}</span>
-                  </div>
+                  </span>
                   <input
                     type="color"
                     value={c.hex}
@@ -175,7 +178,7 @@ export default function BrandingPage() {
                     className="swatch-input"
                     aria-label={`Edit ${c.name} color`}
                   />
-                </div>
+                </label>
               ))}
             </div>
             <div className="contrast-row">
@@ -432,18 +435,18 @@ export default function BrandingPage() {
 
         .bgrid {
           display: grid;
-          grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-          gap: 20px;
+          grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+          gap: 24px;
           align-items: start;
         }
-        @media (max-width: 1100px) { .bgrid { grid-template-columns: 1fr; } }
-        .bcol { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+        @media (max-width: 1180px) { .bgrid { grid-template-columns: 1fr; } }
+        .bcol { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
         .bcol-r {
           position: sticky;
           top: 80px;
           align-self: start;
         }
-        @media (max-width: 1100px) { .bcol-r { position: static; } }
+        @media (max-width: 1180px) { .bcol-r { position: static; } }
 
         /* ── Inputs ────────────────────────────────────────── */
         .fld { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
