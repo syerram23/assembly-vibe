@@ -190,24 +190,24 @@ export default function LandingPage() {
             <div>
               <span className="eyebrow"><span className="dot" />Enterprise & SMB AI enablement</span>
               <h1>
-                Vibe-code your business —<br />
-                <em>safely, on your own data</em>.
+                Ship enterprise AI apps in <em>a week</em> &mdash;<br />
+                pre-built for your stack.
               </h1>
               <p className="lede">
-                Your team can build AI apps just by describing what they need. Assembly makes your data ready for that — governed, permissioned, and safe — and hands you a library of pre-built agents to start from. Bring your own builder, hire a certified one, or have us deliver it.
+                Assembly comes pre-wired: <b>40+ connectors</b> to your systems of record, <b>6 production-ready agents</b>, and the identity, audit, HITL, hosting, and durable-workflow runtime your team would otherwise build from scratch &mdash; already there. Your team writes the part unique to your business; the other ninety percent ships day one. Vibe-code inside the enterprise.
               </p>
               <div className="cta-row">
                 <Link href="/app" className="btn btn-primary">
                   Get a data-readiness assessment <span className="arr">→</span>
                 </Link>
                 <Link href="#how-it-works" className="btn btn-secondary">
-                  See how it works
+                  See what's pre-built
                 </Link>
               </div>
               <div className="meta-row">
-                <span><b>Anyone on the team</b> · designer, finance, ops</span>
-                <span><b>Production-grade</b> · audit, HITL, 99.9% SLA</span>
-                <span><b>On Temporal</b> · single-tenant · SOC 2</span>
+                <span><b>47 connectors</b> · pre-built · Workday, SF, Snowflake, +44</span>
+                <span><b>6 agents</b> · production-ready · point and configure</span>
+                <span><b>~1 week to first app</b> · vs 12+ weeks from scratch</span>
               </div>
             </div>
 
@@ -280,23 +280,27 @@ export default function LandingPage() {
         {/* ─────────────────────── SECTION 2 · THE SHIFT ─────────────────────── */}
         <section className="sec sec-shift">
           <div className="wrap">
-            <span className="eyebrow"><span className="dot" />The shift</span>
-            <h2 className="sec-headline">Building the app was never going to be the hard part for long</h2>
+            <span className="eyebrow"><span className="dot" />Why pre-built matters</span>
+            <h2 className="sec-headline">Vibe-coding made building easy. <em className="indigo-em">Pre-built tooling</em> makes shipping fast.</h2>
             <p className="sec-body">
-              Vibe coding means anyone can turn an idea into a working app in an afternoon. So the bottleneck moved. It is no longer &ldquo;can we build it&rdquo; — it is &ldquo;is our data safe to build on, and are we starting from something, or from nothing.&rdquo; That is the gap Assembly closes.
+              An app you vibe-code in an afternoon still has to authenticate against your company SSO, read from your real systems of record, send notifications, store secrets, host reliably, route human-review gates, and pass IT&rsquo;s checklist. That&rsquo;s twelve weeks of plumbing per app &mdash; unless someone has already built it once and shares it. Assembly is that someone: forty-plus connectors, six production-ready agents, identity, audit, HITL, durable workflows, hosting &mdash; all already wired. Your team writes the ten percent unique to your business. The other ninety percent ships day one.
             </p>
 
             <div className="shift-grid">
               <div className="shift-card shift-card-muted">
-                <span className="shift-tag">Yesterday</span>
-                <h3 className="shift-h">Building was the hard part</h3>
+                <span className="shift-tag">From scratch</span>
+                <h3 className="shift-h">Build the app &mdash; <em>and</em> the plumbing</h3>
                 <div className="shift-art shift-art-muted">
-                  <span className="shift-glyph">{`{ }`}</span>
-                  <span className="shift-word">syntax</span>
-                  <span className="shift-word">tickets</span>
-                  <span className="shift-word">timelines</span>
+                  <span className="shift-word">SSO</span>
+                  <span className="shift-word">connectors</span>
+                  <span className="shift-word">audit</span>
+                  <span className="shift-word">hosting</span>
+                  <span className="shift-word">HITL</span>
+                  <span className="shift-word">workflows</span>
+                  <span className="shift-word">comms</span>
+                  <span className="shift-word">secrets</span>
                 </div>
-                <p className="shift-cap">Engineering capacity was the ceiling. Most ideas never got built.</p>
+                <p className="shift-cap"><b>~12 weeks</b> per app · most never make it past prototype</p>
               </div>
 
               <div className="shift-arrow" aria-hidden>
@@ -305,15 +309,15 @@ export default function LandingPage() {
               </div>
 
               <div className="shift-card shift-card-accent">
-                <span className="shift-tag indigo">Today</span>
-                <h3 className="shift-h">A safe data foundation is</h3>
+                <span className="shift-tag indigo">With Assembly</span>
+                <h3 className="shift-h">Build the app &mdash; <em>the rest is pre-built</em></h3>
                 <div className="shift-art shift-art-accent">
                   <span className="shift-glyph indigo">⌬</span>
-                  <span className="shift-word strong">data</span>
-                  <span className="shift-word strong">governance</span>
-                  <span className="shift-word strong">audit</span>
+                  <span className="shift-word strong">idea</span>
+                  <span className="shift-word strong">business&nbsp;logic</span>
+                  <span className="shift-word strong">ship</span>
                 </div>
-                <p className="shift-cap">Anyone can build the app. The question is whether your data is ready for them to.</p>
+                <p className="shift-cap"><b>~1 week</b> per app · every app inherits the stack, day one</p>
               </div>
             </div>
           </div>

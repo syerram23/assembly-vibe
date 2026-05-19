@@ -27,6 +27,7 @@ import type {
   AuditEvent,
   Alert,
   ApiKey,
+  OrgBranding,
 } from "./types";
 
 // ─── Organization ──────────────────────────────────────────────────────────
@@ -560,6 +561,48 @@ export const apiKeys: ApiKey[] = [
   { id: "key_anthropic", organizationId: "org_acme", provider: "anthropic", label: "Anthropic · production", status: "Active", createdAt: "2025-11-05T10:00:00Z", lastUsedAt: "2026-05-18T18:51:00Z", maskedKey: "sk-ant-...8b21" },
   { id: "key_voyage",    organizationId: "org_acme", provider: "internal",  label: "Voyage embeddings",      status: "Active", createdAt: "2026-01-22T09:00:00Z", lastUsedAt: "2026-05-17T03:00:00Z", maskedKey: "pa-...44ef" },
 ];
+
+// ─── Branding ──────────────────────────────────────────────────────────────
+
+export const orgBranding: OrgBranding = {
+  organizationId: "org_acme",
+  brandName: "Acme Mortgage",
+  tagline: "Bank-grade infrastructure for the long term.",
+  logoMark: "A",
+  logoVariant: "wordmark",
+  colors: [
+    { name: "primary",   hex: "#1F3D7A" },  // Acme deep navy
+    { name: "secondary", hex: "#C8A55B" },  // Acme gold
+    { name: "accent",    hex: "#4F46E5" },  // indigo (Assembly default — overridable)
+    { name: "surface",   hex: "#F7F5EF" },  // warm off-white
+    { name: "ink",       hex: "#101524" },
+  ],
+  displayFont: "Söhne",
+  bodyFont: "Inter",
+  monoFont: "JetBrains Mono",
+  voiceTemplateId: "voice_formal",
+  voiceTemplates: [
+    { id: "voice_formal",   label: "Formal · regulated",       description: "Banking-, healthcare-, or insurance-grade tone. No contractions, full sentences.", sample: "Your dispute is under review. We will notify you within ten business days." },
+    { id: "voice_friendly", label: "Friendly · internal",      description: "Warm, conversational. For employee-facing apps.",                                  sample: "Hey! Your comp band for L4 in SF is $148k–$182k. Ping me if you need the full table." },
+    { id: "voice_neutral",  label: "Neutral · operational",    description: "Plain, transactional. For status updates and confirmations.",                       sample: "Vendor ACME-882 has been onboarded. Procurement review is required before contract activation." },
+  ],
+  templates: [
+    { id: "tpl_email_header", surface: "email",    label: "Email header",        description: "Logo + brand color band at the top of every outbound email.",   preview: "Acme Mortgage · Compliance update",      active: true },
+    { id: "tpl_email_signoff",surface: "email",    label: "Email sign-off",      description: "Standardized closing across all app-sent emails.",                preview: "— The Acme Compliance team",             active: true },
+    { id: "tpl_slack_bot",    surface: "slack",    label: "Slack bot avatar",    description: "How the agent appears in Slack: name, avatar, color stripe.",     preview: "Acme · @acme-compliance-bot",            active: true },
+    { id: "tpl_sms",          surface: "sms",      label: "SMS preface",         description: "Identifier shown at the start of every SMS sent by an app.",      preview: "[Acme Mortgage]",                        active: true },
+    { id: "tpl_web_header",   surface: "web",      label: "Web app header",      description: "Logo, primary color, and nav styling for web-rendered apps.",     preview: "Logo + navy header · gold accent",       active: true },
+    { id: "tpl_doc_header",   surface: "document", label: "Document header",     description: "Logo and metadata at the top of every generated PDF/Word doc.",   preview: "Acme Mortgage · CMP Report · Q2 2026",   active: true },
+    { id: "tpl_doc_footer",   surface: "document", label: "Document footer",     description: "Legal/compliance footer on every generated document.",            preview: "Confidential. © 2026 Acme Mortgage.",    active: true },
+  ],
+  emailFromName: "Acme Mortgage",
+  slackBotName: "acme-compliance-bot",
+  documentFooter: "Confidential · For Acme Mortgage operational use only · © 2026",
+  scope: "all-apps",
+  overriddenAppIds: [],
+  lastUpdatedBy: "u_maria",
+  lastUpdatedAt: "2026-05-12T14:22:00Z",
+};
 
 // ─── Utility lookups ───────────────────────────────────────────────────────
 

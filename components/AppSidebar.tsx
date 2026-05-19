@@ -35,6 +35,7 @@ const sections: { lbl: string; items: NavItem[] }[] = [
     items: [
       { href: "/app/governance", label: "Governance" },
       { href: "/app/access",     label: "Access" },
+      { href: "/app/branding",   label: "Branding" },
       { href: "/app/activity",   label: "Activity" },
     ],
   },

@@ -361,3 +361,55 @@ export interface ApiKey {
   lastUsedAt?: string;
   maskedKey: string;          // e.g. "sk-ant-...8b21"
 }
+
+// ─── Branding ──────────────────────────────────────────────────────────────
+
+export interface BrandColor {
+  name: "primary" | "secondary" | "accent" | "surface" | "ink";
+  hex: string;
+}
+
+export interface BrandVoiceTemplate {
+  id: string;
+  label: string;              // e.g. "Friendly internal"
+  description: string;
+  sample: string;             // one-line sample message
+}
+
+export interface BrandTemplate {
+  id: string;
+  surface: "email" | "slack" | "sms" | "web" | "document";
+  label: string;
+  description: string;
+  preview: string;            // short rendered preview
+  active: boolean;
+}
+
+export interface OrgBranding {
+  organizationId: string;
+  // Identity
+  brandName: string;
+  tagline: string;
+  logoMark: string;           // single letter / emoji / SVG path placeholder
+  logoVariant: "wordmark" | "mark-only" | "stacked";
+  // Palette
+  colors: BrandColor[];
+  // Typography
+  displayFont: string;
+  bodyFont: string;
+  monoFont: string;
+  // Voice
+  voiceTemplateId: string;
+  voiceTemplates: BrandVoiceTemplate[];
+  // Surfaces
+  templates: BrandTemplate[];
+  // Footer / signature
+  emailFromName: string;
+  slackBotName: string;
+  documentFooter: string;
+  // Apply-to scope
+  scope: "all-apps" | "selective";
+  overriddenAppIds: string[];
+  lastUpdatedBy: string;
+  lastUpdatedAt: string;
+}
